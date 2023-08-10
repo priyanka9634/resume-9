@@ -1,0 +1,100 @@
+-- import: fastn-community.github.io/code-block as cb
+-- import: fifthtry.github.io/caffeine-resume
+-- import: fifthtry.github.io/resume/sample as s
+
+
+-- site-doc.doc-home: Skills Info
+site-title: Caffeine-resume
+show-tabs: false
+
+-- site-doc.component-doc: `caffeine-resume`
+package-link: fifthtry.github.io/caffeine-resume
+package-name: fifthtry.github.io/caffeine-resume
+info: `-- caffeine-resume` can be used as resume on your fastn web projects.
+
+-- site-doc.header: How to use
+
+-- cb.code: Add `resume` dependency into your FASTN.ftd
+lang: ftd
+
+\-- fastn.dependency: fifthtry.github.io/resume
+\-- fastn.dependency: fifthtry.github.io/caffeine-resume
+
+-- cb.code: Import `resume` into your `.ftd` file
+lang: ftd
+
+\-- import: fifthtry.github.io/caffeine-resume
+\-- import: fifthtry.github.io/resume as cv
+
+-- cb.code: Write below code to your `.ftd` file
+lang: ftd
+
+\-- cv.resume john-doe:
+
+-- site-doc.header: Resume Skills Info:
+
+-- cb.code: Modify below skills details info with your info:
+lang: ftd
+
+\-- john-doe.skill: Frontend
+
+\-- keywords: HTML / JSX
+level: expert
+
+\-- keywords: SCSS / CSS 
+level: expert
+
+\-- keywords: Javascript / React
+level: advance
+
+\-- john-doe.skill:  Backend
+
+\-- keywords: Node
+level: beginner
+
+\-- keywords: Ruby
+level: beginner
+
+\-- keywords: Python
+level: beginner
+
+\-- keywords: Postgres 
+level: beginner
+
+\-- keywords: Redis
+level: advance
+
+\-- keywords: Serverless
+level: advance
+
+\-- john-doe.skill: DEVOPS
+
+\-- keywords: AWS
+level: beginner
+
+\-- keywords: Cloud
+level: beginner
+
+\-- keywords: Heroku
+level: beginner
+
+\-- keywords: Caching 
+level: advance
+
+-- site-doc.header: Properties:
+
+Below are details of all properties of this component.
+
+-- site-doc.component-property: `title`
+type: caption (`required`)
+
+It's used to show `title` for the skills sections.
+
+-- site-doc.component-property: `level`
+type: string (`required`)
+
+It's used to show `level` for the skills.
+
+-- end: site-doc.component-doc
+
+-- end: site-doc.doc-home

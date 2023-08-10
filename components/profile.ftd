@@ -1,0 +1,68 @@
+-- import: fastn-community.github.io/code-block as cb
+-- import: fifthtry.github.io/caffeine-resume
+-- import: fifthtry.github.io/resume/sample as s
+
+
+-- site-doc.doc-home: Profile Info
+site-title: Caffeine-resume
+show-tabs: false
+
+-- site-doc.component-doc: `caffeine-resume`
+package-link: fifthtry.github.io/caffeine-resume
+package-name: fifthtry.github.io/caffeine-resume
+info: `-- caffeine-resume` can be used as resume on your fastn web projects.
+
+-- site-doc.header: How to use
+
+-- cb.code: Add `resume` dependency into your FASTN.ftd
+lang: ftd
+
+\-- fastn.dependency: fifthtry.github.io/resume
+\-- fastn.dependency: fifthtry.github.io/caffeine-resume
+
+-- cb.code: Import `resume` into your `.ftd` file
+lang: ftd
+
+\-- import: fifthtry.github.io/caffeine-resume
+\-- import: fifthtry.github.io/resume as cv
+
+-- cb.code: Write below code to your `.ftd` file
+lang: ftd
+
+\-- cv.resume john-doe:
+
+-- site-doc.header: Resume Social Profile Info:
+
+-- cb.code: Modify below social profile details info with your info:
+lang: ftd
+
+\-- john-doe.profile: Twitter
+username: johndoe
+url: https://twitter.com/john
+
+\-- john-doe.profile: Linked-in
+username: johndoe
+url: https://twitter.com/john
+
+-- site-doc.header: Properties:
+
+Below are details of all properties of this component.
+
+-- site-doc.component-property: `title`
+type: caption (`required`)
+
+It's used to show `title` for the profile sections.
+
+-- site-doc.component-property: `username`
+type: string (`required`)
+
+It's used to show `username` for the profile.
+
+-- site-doc.component-property: `url`
+type: link (`required`)
+
+It's used to show `url` for the profile.
+
+-- end: site-doc.component-doc
+
+-- end: site-doc.doc-home

@@ -1,0 +1,103 @@
+-- import: fastn-community.github.io/code-block as cb
+-- import: fifthtry.github.io/caffeine-resume
+-- import: fifthtry.github.io/resume/sample as s
+
+
+-- site-doc.doc-home: Education Info
+site-title: Caffeine-resume
+show-tabs: false
+
+-- site-doc.component-doc: `caffeine-resume`
+package-link: fifthtry.github.io/caffeine-resume
+package-name: fifthtry.github.io/caffeine-resume
+info: `-- caffeine-resume` can be used as resume on your fastn web projects.
+
+-- site-doc.header: How to use
+
+-- cb.code: Add `resume` dependency into your FASTN.ftd
+lang: ftd
+
+\-- fastn.dependency: fifthtry.github.io/resume
+\-- fastn.dependency: fifthtry.github.io/caffeine-resume
+
+-- cb.code: Import `resume` into your `.ftd` file
+lang: ftd
+
+\-- import: fifthtry.github.io/caffeine-resume
+\-- import: fifthtry.github.io/resume as cv
+
+-- cb.code: Write below code to your `.ftd` file
+lang: ftd
+
+\-- cv.resume john-doe:
+
+-- site-doc.header: Resume Education Info:
+
+-- cb.code: Modify below education details info with your info:
+lang: ftd
+
+\-- john-doe.education: University of Oklahoma
+url: /
+area: Management Information Technology
+studyType: Masters
+startDate: Aug-2007
+endDate: Jan-2009
+score: 9.0
+courses: Business, Cybersecurity
+
+\-- john-doe.education: University of Oklahoma
+url: /
+area: Information Technology
+studyType: Bachelors
+startDate: Aug-2004
+endDate: Jan-2007
+score: 8.0
+courses: C++, Java
+
+-- site-doc.header: Properties:
+
+Below are details of all properties of this component.
+
+-- site-doc.component-property: `title`
+type: caption (`required`)
+
+It's used to show `title` for the education sections.
+
+-- site-doc.component-property: `area`
+type: string (`required`)
+
+It's used to show `area` for the education.
+
+-- site-doc.component-property: `url`
+type: link (`required`)
+
+It's used to show `url` for the education sections.
+
+-- site-doc.component-property: `startDate`
+type: string (`required`)
+
+It's used to show `startDate` for the education sections.
+
+-- site-doc.component-property: `endDate`
+type: string (`required`)
+
+It's used to show `endDate` for the education sections.
+
+-- site-doc.component-property: `studyType`
+type: string (`required`)
+
+It's used to show `studyType` for the education sections.
+
+-- site-doc.component-property: `score`
+type: string (`required`)
+
+It's used to show `score` for the education sections.
+
+-- site-doc.component-property: `courses`
+type: string (`required`)
+
+It's used to show `courses` for the education sections.
+
+-- end: site-doc.component-doc
+
+-- end: site-doc.doc-home
