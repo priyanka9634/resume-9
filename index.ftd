@@ -1,3 +1,4 @@
+
 -- import: fifthtry.github.io/resume/sample as s
 -- import: fifthtry.github.io/resume as res
 -- import: fifthtry.github.io/caffeine-resume/assets
@@ -53,13 +54,6 @@ res.resume resume:
 width: fill-container
 background.solid: $inherited.colors.background.base
 
--- profile-card:
-image: $show-resume.resume.basic.image
-summary: $show-resume.resume.basic.summary
-
--- profile-title: $show-resume.resume.basic.name
-label: $show-resume.resume.basic.label
-
 -- about-section:
 resume: $show-resume.resume
 
@@ -81,7 +75,7 @@ res.resume resume:
 
 -- ftd.column:
 height: fill-container
-
+background.solid: $inherited.colors.background.step-1
 -- ftd.desktop:
 
 -- about-section-desktop:
@@ -118,10 +112,16 @@ height.fixed.calc: 100%
 -- ftd.column:
 width.fixed.percent: 25
 height: fill-container
-background.solid: $inherited.colors.background.step-1
 spacing.fixed.px: 24
-padding-horizontal.px: 24
-padding-top.px: 64
+padding-left.px: 32
+padding-vertical.px: 32
+
+-- profile-card:
+image: $about-section-desktop.resume.basic.image
+summary: $about-section-desktop.resume.basic.summary
+title: $about-section-desktop.resume.basic.name
+label: $about-section-desktop.resume.basic.label
+
 -- ftd.column:
 width: fill-container
 
@@ -137,25 +137,16 @@ candidate-address-region: $about-section-desktop.resume.location.region
 candidate-address-countryCode: $about-section-desktop.resume.location.countryCode
 maritalStatus: $about-section-desktop.resume.basic.maritalStatus
 dateOfBirth: $about-section-desktop.resume.basic.dateOfBirth
-
--- end: ftd.column
-
--- ftd.column:
-if: { !ftd.is_empty(about-section-desktop.resume.skill)}
-width: fill-container
-
--- heading: SKILLS:
-
--- skill-section:
-name: $obj.name
-keyword: $obj.keywords
-$loop$: $about-section-desktop.resume.skill as $obj
+website: $about-section-desktop.resume.basic.url 
 
 -- end: ftd.column
 
 -- ftd.column:
 if: { !ftd.is_empty(about-section-desktop.resume.profile)}
 width: fill-container
+padding-bottom.px: 8
+border-bottom-width.px: 2
+border-color: $inherited.colors.background.base
 
 -- heading: SOCIAL:
 
@@ -171,31 +162,12 @@ $loop$: $about-section-desktop.resume.profile as $obj
 if: { !ftd.is_empty(about-section-desktop.resume.interest)}
 width: fill-container
 
--- heading: INTEREST
+-- heading: LANGUAGE
 
--- interest-section:
-name: $obj.name
-keyword: $obj.keyword
-$loop$: $about-section-desktop.resume.interest as $obj
-
--- end: ftd.column
-
--- ftd.column:
-if: { !ftd.is_empty(about-section-desktop.resume.education)}
-width: fill-container
-
--- heading: EDUCATION
-
--- education-section:
-institution: $obj.institution
-url: $obj.url
-courses: $obj.courses
-area: $obj.area
-studyType: $obj.studyType
-startDate: $obj.startDate
-endDate: $obj.endDate
-score: $obj.score
-$loop$: $about-section-desktop.resume.education as $obj
+-- language-section:
+language: $obj.language
+fluency: $obj.fluency
+$loop$: $about-section-desktop.resume.language as $obj
 
 -- end: ftd.column
 
@@ -203,11 +175,16 @@ $loop$: $about-section-desktop.resume.education as $obj
 
 -- ftd.column:
 width.fixed.percent: 75
-padding-horizontal.px: 24
+padding-vertical.px: 64
+padding-right.px: 32
 
 -- ftd.column:
 if: { !ftd.is_empty(about-section-desktop.resume.work)}
 width: fill-container
+padding-horizontal.px: 32
+border-left-width.px: 1
+margin-left.px: 32
+border-color: $inherited.colors.background.base
 
 -- data-card: WORK EXPERIENCES
 
@@ -227,8 +204,17 @@ $loop$: $about-section-desktop.resume.work as $obj
 -- ftd.column:
 if: { !ftd.is_empty(about-section-desktop.resume.project)}
 width: fill-container
+padding-horizontal.px: 32
+border-left-width.px: 1
+margin-left.px: 32
+border-color: $inherited.colors.background.base
 
 -- data-card: PROJECTS
+
+-- ftd.row:
+wrap: true
+width: fill-container
+spacing.fixed.px: 24
 
 -- project-section:
 name: $obj.name
@@ -241,73 +227,51 @@ role: $obj.role
 keyword: $obj.keyword
 entity: $obj.entity
 type: $obj.type
+image: $obj.image
 $loop$: $about-section-desktop.resume.project as $obj
 
+-- end: ftd.row
+
 -- end: ftd.column
 
+
 -- ftd.column:
-if: { !ftd.is_empty(about-section-desktop.resume.certificate)}
+if: { !ftd.is_empty(about-section-desktop.resume.education)}
 width: fill-container
+padding-horizontal.px: 32
+border-left-width.px: 1
+margin-left.px: 32
+border-color: $inherited.colors.background.base
 
--- data-card: CERTIFICATES
+-- data-card: EDUCATION
 
--- certificate-section:
-name: $obj.name
-issuer: $obj.issuer
-date: $obj.date
+-- education-section:
+institution: $obj.institution
 url: $obj.url
-$loop$: $about-section-desktop.resume.certificate as $obj
-
--- end: ftd.column
-
--- ftd.column:
-if: { !ftd.is_empty(about-section-desktop.resume.award)}
-width: fill-container
-
--- data-card: AWARDS
-
--- acheivement-section:
-title: $obj.title
-date: $obj.date
-awarder:  $obj.awarder
-summary: $obj.summary
-$loop$: $about-section-desktop.resume.award as $obj
-
--- end: ftd.column
-
--- ftd.column:
-if: { !ftd.is_empty(about-section-desktop.resume.volunteer)}
-width: fill-container
-
--- data-card: VOLUNTEERS
-
-
--- volunteer-section:
-organization: $obj.organization
-position: $obj.position
-url: $obj.url
+courses: $obj.courses
+area: $obj.area
+studyType: $obj.studyType
 startDate: $obj.startDate
 endDate: $obj.endDate
-highlights: $obj.highlights
-summary: $obj.summary
-$loop$: $about-section-desktop.resume.volunteer as $obj
+score: $obj.score
+$loop$: $about-section-desktop.resume.education as $obj
 
 -- end: ftd.column
 
 -- ftd.column:
-if: { !ftd.is_empty(about-section-desktop.resume.reference)}
+if: { !ftd.is_empty(about-section-desktop.resume.skill)}
 width: fill-container
+padding-horizontal.px: 32
+border-left-width.px: 1
+margin-left.px: 32
+border-color: $inherited.colors.background.base
 
--- data-card: REFERENCES
+-- data-card: SKILLS:
 
--- refrences-section:
+-- skill-section:
 name: $obj.name
-position: $obj.position
-company: $obj.company
-email: $obj.email-id
-phone: $obj.phone-no
-reference: $obj.reference
-$loop$: $about-section-desktop.resume.reference as $obj
+keyword: $obj.keywords
+$loop$: $about-section-desktop.resume.skill as $obj
 
 -- end: ftd.column
 
@@ -326,6 +290,34 @@ $loop$: $about-section-desktop.resume.reference as $obj
 
 
 
+-- component language-section:
+optional caption language:
+optional string fluency:
+
+-- ftd.column:
+width: fill-container
+margin-bottom.px: 16
+spacing.fixed.px: 8
+
+-- ftd.text: $language-section.language
+color: $inherited.colors.text-strong
+role: $inherited.types.fine-print
+
+-- progress-bar: $language-section.fluency
+
+-- end: ftd.column
+
+-- end:language-section
+
+
+
+
+
+
+
+
+
+
 -- component about-section-mobile:
 res.resume resume:
 
@@ -334,12 +326,28 @@ width: fill-container
 height: fill-container
 background.solid: $inherited.colors.background.step-1
 spacing.fixed.px: 24
-padding-horizontal.px: 24
 padding-vertical.px: 64
 
 
+-- profile-card:
+image: $about-section-mobile.resume.basic.image
+summary: $about-section-mobile.resume.basic.summary
+title: $about-section-mobile.resume.basic.name
+label: $about-section-mobile.resume.basic.label
+
+
+
+-- ftd.row:
+overflow-x: auto
+width.fixed.px: 340
+border-top-width.px: 1
+border-bottom-width.px: 1
+border-color: $inherited.colors.background.base
+padding-horizontal.px: 24
+
 -- ftd.column:
-width: fill-container
+min-width.fixed.percent: 85
+padding-vertical.px: 24
 
 -- heading: CONTACT:
 
@@ -357,21 +365,14 @@ dateOfBirth: $about-section-mobile.resume.basic.dateOfBirth
 -- end: ftd.column
 
 -- ftd.column:
-if: { !ftd.is_empty(about-section-mobile.resume.skill)}
-width: fill-container
-
--- heading: SKILLS:
-
--- skill-section:
-name: $obj.name
-keyword: $obj.keywords
-$loop$: $about-section-mobile.resume.skill as $obj
-
--- end: ftd.column
-
--- ftd.column:
 if: { !ftd.is_empty(about-section-mobile.resume.profile)}
-width: fill-container
+border-right-width.px: 1
+border-left-width.px: 1
+border-color: $inherited.colors.background.base
+margin-horizontal.px: 24
+padding-horizontal.px: 24
+padding-vertical.px: 24
+min-width.fixed.percent: 90
 
 -- heading: SOCIAL:
 
@@ -385,39 +386,26 @@ $loop$: $about-section-mobile.resume.profile as $obj
 
 -- ftd.column:
 if: { !ftd.is_empty(about-section-mobile.resume.interest)}
-width: fill-container
+border-color: $inherited.colors.background.base
+padding-horizontal.px: 24
+padding-vertical.px: 24
+min-width.fixed.percent: 100
 
--- heading: INTEREST
+-- heading: LANGUAGE
 
--- interest-section:
-name: $obj.name
-keyword: $obj.keyword
-$loop$: $about-section-mobile.resume.interest as $obj
-
--- end: ftd.column
-
--- ftd.column:
-if: { !ftd.is_empty(about-section-mobile.resume.education)}
-width: fill-container
-
--- heading: EDUCATION
-
--- education-section:
-institution: $obj.institution
-url: $obj.url
-courses: $obj.courses
-area: $obj.area
-studyType: $obj.studyType
-startDate: $obj.startDate
-endDate: $obj.endDate
-score: $obj.score
-$loop$: $about-section-mobile.resume.education as $obj
+-- language-section:
+language: $obj.language
+fluency: $obj.fluency
+$loop$: $about-section-mobile.resume.language as $obj
 
 -- end: ftd.column
+
+-- end: ftd.row
 
 -- ftd.column:
 if: { !ftd.is_empty(about-section-mobile.resume.work)}
 width: fill-container
+padding-horizontal.px: 24
 
 -- data-card: WORK EXPERIENCES
 
@@ -437,6 +425,7 @@ $loop$: $about-section-mobile.resume.work as $obj
 -- ftd.column:
 if: { !ftd.is_empty(about-section-mobile.resume.project)}
 width: fill-container
+padding-horizontal.px: 24
 
 -- data-card: PROJECTS
 
@@ -451,73 +440,43 @@ role: $obj.role
 keyword: $obj.keyword
 entity: $obj.entity
 type: $obj.type
+image: $obj.image
 $loop$: $about-section-mobile.resume.project as $obj
 
 -- end: ftd.column
 
+
 -- ftd.column:
-if: { !ftd.is_empty(about-section-mobile.resume.certificate)}
+if: { !ftd.is_empty(about-section-mobile.resume.education)}
 width: fill-container
+padding-horizontal.px: 24
 
--- data-card: CERTIFICATES
+-- data-card: EDUCATION
 
--- certificate-section:
-name: $obj.name
-issuer: $obj.issuer
-date: $obj.date
+-- education-section:
+institution: $obj.institution
 url: $obj.url
-$loop$: $about-section-mobile.resume.certificate as $obj
-
--- end: ftd.column
-
--- ftd.column:
-if: { !ftd.is_empty(about-section-mobile.resume.award)}
-width: fill-container
-
--- data-card: AWARDS
-
--- acheivement-section:
-title: $obj.title
-date: $obj.date
-awarder:  $obj.awarder
-summary: $obj.summary
-$loop$: $about-section-mobile.resume.award as $obj
-
--- end: ftd.column
-
--- ftd.column:
-if: { !ftd.is_empty(about-section-mobile.resume.volunteer)}
-width: fill-container
-
--- data-card: VOLUNTEERS
-
-
--- volunteer-section:
-organization: $obj.organization
-position: $obj.position
-url: $obj.url
+courses: $obj.courses
+area: $obj.area
+studyType: $obj.studyType
 startDate: $obj.startDate
 endDate: $obj.endDate
-highlights: $obj.highlights
-summary: $obj.summary
-$loop$: $about-section-mobile.resume.volunteer as $obj
+score: $obj.score
+$loop$: $about-section-mobile.resume.education as $obj
 
 -- end: ftd.column
 
 -- ftd.column:
-if: { !ftd.is_empty(about-section-mobile.resume.reference)}
+if: { !ftd.is_empty(about-section-mobile.resume.skill)}
 width: fill-container
+padding-horizontal.px: 24
 
--- data-card: REFERENCES
+-- data-card: SKILLS:
 
--- refrences-section:
+-- skill-section:
 name: $obj.name
-position: $obj.position
-company: $obj.company
-email: $obj.email-id
-phone: $obj.phone-no
-reference: $obj.reference
-$loop$: $about-section-mobile.resume.reference as $obj
+keyword: $obj.keywords
+$loop$: $about-section-mobile.resume.skill as $obj
 
 -- end: ftd.column
 
@@ -534,6 +493,8 @@ $loop$: $about-section-mobile.resume.reference as $obj
 -- component profile-card:
 optional ftd.image-src image: 
 optional body summary:
+optional caption title:
+optional string label:
 
 -- ftd.column:
 width: fill-container
@@ -543,6 +504,8 @@ width: fill-container
 -- profile-card-desktop:
 image: $profile-card.image
 summary: $profile-card.summary
+title: $profile-card.title
+label: $profile-card.label
 
 -- end: ftd.desktop
 
@@ -551,6 +514,8 @@ summary: $profile-card.summary
 -- profile-card-mobile:
 image: $profile-card.image
 summary: $profile-card.summary
+title: $profile-card.title
+label: $profile-card.label
 
 -- end: ftd.mobile
 
@@ -570,34 +535,47 @@ summary: $profile-card.summary
 -- component profile-card-desktop:
 optional ftd.image-src image: 
 optional body summary:
+optional caption title:
+optional string label:
 
--- ftd.row:
+-- ftd.column:
+padding-bottom.px: 24
+border-bottom-width.px: 2
+border-color: $inherited.colors.background.base
+color: $inherited.colors.text-strong
+
+-- ftd.text:
+if: { profile-card-desktop.title != NULL }
+text: $profile-card-desktop.title
+role: $inherited.types.heading-medium
+text-align: center
 width: fill-container
+
+-- ftd.text:
+if: { profile-card-desktop.label != NULL }
+text: $profile-card-desktop.label
+role: $inherited.types.copy-large
+text-align: center
+width: fill-container
+margin-bottom.px: 28
 
 -- ftd.image:
 if: { profile-card-desktop.image != NULL }
 src: $profile-card-desktop.image
-width.fixed.percent: 25
+width: fill-container
 height: fill-container
-
--- ftd.column:
-if: { profile-card-desktop.summary != NULL }
-margin-top.px: 16
-width.fixed.percent: 75
-margin-bottom.px: 16
-padding-horizontal.px:24
-
--- data-card: ABOUT ME
+border-color: $inherited.colors.custom.three
+border-width.px: 10
+border-radius.percent: 100
 
 -- ftd.text:
+if: { profile-card-desktop.summary != NULL }
 text: $profile-card-desktop.summary
-role: $inherited.types.copy-large
-color: $inherited.colors.text-strong
-padding-top.px: 16
+role: $inherited.types.fine-print
+margin-top.px: 48
+
 
 -- end: ftd.column
-
--- end: ftd.row
 
 -- end: profile-card-desktop
 
@@ -614,31 +592,51 @@ padding-top.px: 16
 -- component profile-card-mobile:
 optional ftd.image-src image: 
 optional body summary:
+optional caption title:
+optional string label:
 
 -- ftd.column:
 width: fill-container
+padding-top.px: 24
+height: fill-container
+padding-horizontal.px: 24
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 12
+align-content: center
 
 -- ftd.image:
 if: { profile-card-mobile.image != NULL }
 src: $profile-card-mobile.image
-width: fill-container
-height: fill-container
+width.fixed.percent: 40
+border-radius.px: 100
 
 -- ftd.column:
-if: { profile-card-mobile.summary != NULL }
-width: fill-container
-margin-bottom.px: 16
-padding-horizontal.px:24
-
--- data-card: ABOUT ME
 
 -- ftd.text:
+if: { profile-card-mobile.title != NULL }
+text: $profile-card-mobile.title
+role: $inherited.types.heading-medium
+color: $inherited.colors.text-strong
+
+-- ftd.text:
+if: { profile-card-mobile.label != NULL }
+text: $profile-card-mobile.label
+role: $inherited.types.fine-print
+color: $inherited.colors.text-strong
+
+-- end: ftd.column
+-- end: ftd.row
+
+-- ftd.text:
+if:{ profile-card-mobile.summary != NULL }
 text: $profile-card-mobile.summary
-role: $inherited.types.copy-large
+role: $inherited.types.fine-print
 color: $inherited.colors.text-strong
 padding-top.px: 16
 
--- end: ftd.column
+
 
 -- end: ftd.column
 
@@ -655,15 +653,37 @@ padding-top.px: 16
 -- component data-card: $title
 caption title:
 
+
+-- ftd.row:
+width: fill-container
+
+-- ftd.row:
+if: { ftd.device != "mobile"}
+shadow: $section-shadow
+padding-vertical.px: 6
+padding-horizontal.px: 6
+anchor: parent
+top.px: 0
+border-radius.px: 100
+background.solid: $inherited.colors.background.base
+left.px: -41
+
+-- ftd.row:
+padding-vertical.px: 2
+padding-horizontal.px: 2
+border-radius.px: 100
+background.solid: $inherited.colors.custom.four
+
+-- end: ftd.row
+
+-- end: ftd.row
+
 -- ftd.text: $data-card.title
-border-bottom-width.px: 2
-padding-bottom.px: 8
-border-color: $inherited.colors.background.step-2
 color: $inherited.colors.text
-margin-top.px: 64
-margin-top.px if { ftd.device == "mobile" }: 24
 role: $inherited.types.heading-tiny
-margin-bottom.px: 24
+margin-bottom.px: 16
+
+-- end: ftd.row
 
 -- end: data-card
 
@@ -686,78 +706,90 @@ optional string candidate-address-postalCode:/
 string candidate-phone:
 optional string maritalStatus: 
 optional string dateOfBirth: 
+optional string website:
 
 -- ftd.column:
-margin-bottom.px: 12
 width: fill-container
-spacing.fixed.px: 8
+spacing.fixed.px: 16
+padding-bottom.px: 24
+border-bottom-width.px if { ftd.device != "mobile" }: 2
+border-color: $inherited.colors.background.base
+
+-- image-text: $contact-section.candidate-email-address
+icon: $assets.files.assets.email.svg
+name: Email
 
 -- ftd.row:
+if: { contact-section.website != NULL }
 width: fill-container
-spacing.fixed.px: 24
-margin-bottom.px: 8
 
 -- ftd.image: 
-src: $assets.files.static.address.svg
-width.fixed.px: 24
-height.fixed.px: 24
+src: $assets.files.assets.profile.svg
 margin-right.px: 16
+width.fixed.px: 38
 
 -- ftd.column:
 width: fill-container
 spacing.fixed.px: 4
+color: $inherited.colors.text
+role: $inherited.types.fine-print
+
+-- ftd.text: Website
+ 
+-- ftd.text: $contact-section.website
+link: $$contact-section.website
+color: $inherited.colors.text-strong
+style: medium
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- image-text: $contact-section.candidate-phone
+icon: $assets.files.assets.phone.svg
+name: Phone
+
+-- ftd.row:
+if: { contact-section.candidate-address != NULL }
+width: fill-container
+
+-- ftd.image: 
+src: $assets.files.assets.location.svg
+margin-right.px: 16
+align-self: center
+width.fixed.px: 38
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 4
+color: $inherited.colors.text
+role: $inherited.types.fine-print
+wrap: true
+
+-- ftd.text:Location
+
+-- ftd.row:
+color: $inherited.colors.text-strong
+role: $inherited.types.link
+spacing.fixed.px: 2
 
 -- ftd.text: $contact-section.candidate-address
 if: { contact-section.candidate-address != NULL }
-color: $bright-grey
-role: $inherited.types.copy-small
+style: medium
+
+-- ftd.text:,
+if: { contact-section.candidate-address-city != NULL }
+style: medium
 
 -- ftd.text: $contact-section.candidate-address-city
 if: { contact-section.candidate-address-city != NULL }
-color: $bright-grey
-role: $inherited.types.copy-small
-
--- ftd.text: $contact-section.candidate-address-region
-if: { contact-section.candidate-address-region != NULL }
-color: $bright-grey
-role: $inherited.types.copy-small
-
--- ftd.row:
-width: fill-container
-
--- ftd.text: $contact-section.candidate-address-countryCode
-if: { contact-section.candidate-address-countryCode != NULL }
-color: $bright-grey
-role: $inherited.types.copy-small
-
--- ftd.text: ,
-if: { contact-section.candidate-address-postalCode != NULL }
-color: $inherited.colors.text
-role: $inherited.types.copy-small
-
--- ftd.text: $contact-section.candidate-address-postalCode
-if: { contact-section.candidate-address-postalCode != NULL }
-color: $bright-grey
-role: $inherited.types.copy-small
-margin-left.px: 8
+style: medium
 
 -- end: ftd.row
 
 -- end: ftd.column
 
 -- end: ftd.row
-
--- image-text: $contact-section.candidate-email-address
-icon: $assets.files.static.mail.svg
-
--- image-text: $contact-section.candidate-phone
-icon: $assets.files.static.phone-call.svg
-
--- image-text: $contact-section.maritalStatus
-icon: $assets.files.static.status.svg
-
--- image-text: $contact-section.dateOfBirth
-icon: $assets.files.static.dob.svg
 
 -- end: ftd.column
 
@@ -775,27 +807,48 @@ icon: $assets.files.static.dob.svg
 
 -- component image-text:
 ftd.image-src icon:
+string name:
 optional caption title:
 
 -- ftd.row:
-spacing.fixed.px: 24
+if: {image-text.title != NULL }
 width: fill-container
 margin-bottom.px: 8
 
 -- ftd.image:
 src: $image-text.icon
-width.fixed.px: 16
+width.fixed.px: 32
 margin-right.px: 16
 
--- ftd.text: $image-text.title
-if: {image-text.title != NULL }
-color: $bright-grey
-role: $inherited.types.copy-small
+-- ftd.column:
+role: $inherited.types.fine-print
 
+-- ftd.text: $image-text.name
+color: $inherited.colors.text
+
+-- ftd.text: $image-text.title
+color: $inherited.colors.text-strong
+style: medium
+
+-- end: ftd.column
 -- end: ftd.row
 
 -- end: image-text
 
+
+
+
+
+
+
+
+-- ftd.shadow section-shadow:
+color: rgba(0, 62, 57, .3)
+x-offset.px: 0
+y-offset.px: 1
+inset: false
+spread.px: 1
+blur.px: 3
 
 
 
@@ -812,10 +865,9 @@ caption title:
 -- ftd.text: $heading.title
 color: $inherited.colors.text-strong
 margin-bottom.px: 24
-padding-bottom.px: 4
-border-bottom-width.px: 2
 border-color: $inherited.colors.background.step-2
-role: $inherited.types.copy-small
+role: $inherited.types.fine-print
+
 
 -- end: heading
 
@@ -834,64 +886,56 @@ res.keyword list keyword:
 
 -- ftd.column:
 width: fill-container
-
--- ftd.row:
-width: fill-container
 if: { skill-section.name != NULL }
 margin-bottom.px: 24
+spacing.fixed.px: 16
 
 -- ftd.text: $skill-section.name
 role: $inherited.types.copy-small
-color: $inherited.colors.text
-text-transform: uppercase
+color: $inherited.colors.text-strong
+style:medium
 
--- ftd.text: :
-role: $inherited.types.copy-small
-color: $inherited.colors.text
-
--- end: ftd.row
-
--- ftd.column:
+-- ftd.row:
 if: { !ftd.is_empty(skill-section.keyword)}
 width: fill-container
-spacing.fixed.px: 4
+spacing.fixed.px: 8
 margin-bottom.px: 12
+wrap: true
 
 -- keyword-card:
 name: $obj.name
-level: $obj.level
 $loop$: $skill-section.keyword as $obj
 
--- end: ftd.column
+-- end: ftd.row
 
 -- end: ftd.column
 
 -- end: skill-section
 
 
+
+
+
+
+
+
+
+
 -- component keyword-card:
 optional caption name:
 optional string level:
 
--- ftd.row:
-width: fill-container
-spacing: space-between
-margin-bottom.px: 16
 
 -- ftd.text: $keyword-card.name
 if: { keyword-card.name != NULL }
-width.fixed.percent: 30
-role: $inherited.types.copy-small
-color: $bright-grey
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.four
+background.solid: $inherited.colors.background.base
+padding-vertical.px: 32
+border-radius.px: 4
+padding-horizontal.px: 12
+style:medium
 
--- ftd.column:
-width.fixed.percent: 60
-
--- progress-bar: $keyword-card.level
-
--- end: ftd.column
-
--- end: ftd.row
 
 -- end: keyword-card
 
@@ -913,95 +957,55 @@ caption level:
 
 -- ftd.row:
 width.fixed.calc: 100% - 1px
-min-height.fixed.px: 10
-border-width.px: 1
+min-height.fixed.px: 6
 border-color: $inherited.colors.text
+color: $inherited.colors.text-strong
 role: $inherited.types.fine-print
-color: $inherited.colors.background.step-1
+background.solid:  $inherited.colors.background.base
 
 -- ftd.row:
 if: {progress-bar.level == "ovice"}
-min-height.fixed.px: 14
-margin-left.px: -1
+min-height.fixed.px: 6
 width.fixed.percent: 10
-background.solid:  $inherited.colors.text
-spacing.fixed.px: 4
-
--- ftd.text: 10%
-anchor: parent
-left.px: 1
-top.px: -1
-width.fixed.percent: 90
-role: $inherited.types.fine-print
-color:  $inherited.colors.background.step-1
-white-space: nowrap
+background.solid:  $inherited.colors.custom.four
+border-radius.px: 50
 
 -- end: ftd.row
 
 -- ftd.row:
 if: {progress-bar.level == "beginner"}
-min-height.fixed.px: 14
+min-height.fixed.px: 6
 width.fixed.percent: 25
-margin-left.px: -1
-background.solid: $inherited.colors.text
-spacing.fixed.px: 4
+background.solid: $inherited.colors.custom.four
+border-radius.px: 50
 
--- ftd.text: 25%
-anchor: parent
-top.px: -1
-left.px: 1
-width.fixed.percent: 75
-text-align: center
-white-space: nowrap
 
 -- end: ftd.row
 
 -- ftd.row:
 if: {progress-bar.level == "advance"}
-min-height.fixed.px: 14
+min-height.fixed.px: 6
 width.fixed.percent: 50
-margin-left.px: -1
-background.solid: $inherited.colors.text
-spacing.fixed.px: 4
-
--- ftd.text: 50%
-anchor: parent
-left.px: 1
-top.px: -1
-width.fixed.percent: 50
-white-space: nowrap
+background.solid: $inherited.colors.custom.four
+border-radius.px: 50
 
 -- end: ftd.row
 
 -- ftd.row:
 if: {progress-bar.level == "competent"}
-min-height.fixed.px: 14
+min-height.fixed.px: 6
 width.fixed.percent: 75
-margin-left.px: -1
-background.solid: $inherited.colors.text
-spacing.fixed.px: 4
-
--- ftd.text: 75%
-anchor: parent
-left.px: 1
-top.px: -1
-width.fixed.percent: 25
-white-space: nowrap
+background.solid: $inherited.colors.custom.four
+border-radius.px: 50
 
 -- end: ftd.row
 
 -- ftd.row:
 if: {progress-bar.level == "expert"}
 width: fill-container
-min-height.fixed.px: 14
-background.solid: $inherited.colors.text
-spacing.fixed.px: 4
-
--- ftd.text: 100%
-anchor: parent
-left.px: 1
-top.px: -1
-white-space: nowrap
+min-height.fixed.px: 6
+background.solid: $inherited.colors.custom.four
+border-radius.px: 50
 
 -- end: ftd.row
 
@@ -1015,26 +1019,6 @@ white-space: nowrap
 
 
 
-
-
-
-
-
-
-
-
--- ftd.row profile-card:
-background.solid: $inherited.colors.background.step-2
-optional caption title:
-optional string label:
-width: fill-container
-
---- profile-card-desktop: $title
-label: $label
-
---- profile-card-mobile: $title
-if: $is-mobile
-label: $label
 
 
 
@@ -1066,6 +1050,16 @@ label: $profile-title.label
 -- end: profile-title
 
 
+
+
+
+
+
+
+
+
+
+
 -- component profile-title-desktop:
 optional caption title:
 optional string label:
@@ -1093,10 +1087,11 @@ color: $inherited.colors.text-strong
 width: fill-container
 padding-left.px: 24
 
-
 -- end: ftd.row
 
 -- end: profile-title-desktop
+
+
 
 
 
@@ -1133,10 +1128,12 @@ width: fill-container
 padding-left.px: 24
 text-align: center
 
-
 -- end: ftd.column
 
 -- end: profile-title-mobile
+
+
+
 
 
 
@@ -1157,47 +1154,37 @@ optional string courses:
 width: fill-container
 margin-bottom.px: 16
 padding-bottom.px: 16
-border-bottom-width.px: 1
-border-style: dashed
-border-color: $inherited.colors.border-strong
 role: $inherited.types.copy-small
-color: $inherited.colors.border-strong
+color: $inherited.colors.text-strong
 spacing.fixed.px: 12
 
+-- ftd.row:
+spacing.fixed.px: 4
+
+-- ftd.text: $education-section.studyType
+color: $inherited.colors.custom.four
+style: bold
+
+-- ftd.text: @
+color: $inherited.colors.custom.four
+style: bold
 
 -- ftd.text: $education-section.institution
 if: { education-section.institution != NULL}
 link if { education-section.url != NULL }: $education-section.url
-color: $bright-grey
-
--- ftd.text: $education-section.studyType
-color: $bright-grey
-
--- ftd.text: $education-section.area
-if: { education-section.area != NULL }
-color: $inherited.colors.text
-
--- ftd.text: $education-section.courses
-if: { education-section.courses != NULL }
-
--- ftd.row:
-spacing.fixed.px: 8
-if: {education-section.score != NULL }
-
--- ftd.text: CGPA:
-
--- ftd.text: $education-section.score
+color: $inherited.colors.text-strong
 
 -- end: ftd.row
 
 -- ftd.row:
 spacing.fixed.px: 4
+role: $inherited.types.fine-print
 
 -- ftd.text: $education-section.startDate
 if: { education-section.startDate != NULL }
 white-space: nowrap
 
--- ftd.text: \\~
+-- ftd.text: \~
 if: { education-section.endDate != NULL }
 
 -- ftd.text: $education-section.endDate
@@ -1208,8 +1195,13 @@ white-space: nowrap
 
 -- end:ftd.column
 
-
 -- end: education-section
+
+
+
+
+
+
 
 
 
@@ -1223,130 +1215,70 @@ optional string summary:
 optional string location:
 optional string highlights:
 
--- ftd.column:
+-- ftd.row:
 width: fill-container
 margin-bottom.px: 16
-border-bottom-width.px: 1
-border-style: dashed
-border-color: $inherited.colors.border-strong
 padding-bottom.px: 24
-role: $inherited.types.copy-small
-color: $inherited.colors.text
-spacing.fixed.px: 12
-
--- ftd.row:
-if: { ftd.device != "mobile" }
-width: fill-container
-align-content: center
-
--- ftd.text: $work-section.position
-if: { work-section.position != NULL }
 color: $inherited.colors.text-strong
-width: fill-container
-
--- ftd.text: $work-section.name
-if: { work-section.name != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $work-section.location
-if: { work-section.location != NULL }
-margin-left.px: 16
-width: fill-container
 
 -- ftd.row:
-padding-top.px: 2
-width: fill-container
-
--- ftd.text: $work-section.startDate
-if: { work-section.startDate != NULL }
-
--- ftd.text: \~
-if: { work-section.endDate != NULL }
-padding-horizontal.px: 4
-
--- ftd.text: $work-section.endDate
-if: { work-section.endDate != NULL }
-
--- end: ftd.row
+width.fixed.px: 5
+height.fixed.px: 5
+background.solid: $inherited.colors.text-strong
+margin-right.px: 24
+border-radius.px: 100
+margin-top.px: 12
 
 -- end: ftd.row
 
 -- ftd.column:
-if: { ftd.device == "mobile" }
-width: fill-container
-spacing.fixed.px: 12
-
--- ftd.text: $work-section.position
-if: { work-section.position != NULL }
-color: $inherited.colors.text-strong
-width: fill-container
-
--- ftd.text: $work-section.name
-if: { work-section.name != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $work-section.location
-if: { work-section.location != NULL }
-width: fill-container
+width.fixed.percent: 20
+spacing.fixed.px: 8
+margin-right.px: 48
 
 -- ftd.row:
 padding-top.px: 2
 width: fill-container
+color: $inherited.colors.text
+role: $inherited.types.copy-regular
 
 -- ftd.text: $work-section.startDate
 if: { work-section.startDate != NULL }
+white-space: nowrap
 
 -- ftd.text: \~
 if: { work-section.endDate != NULL }
 padding-horizontal.px: 4
+white-space: nowrap
 
 -- ftd.text: $work-section.endDate
 if: { work-section.endDate != NULL }
+white-space: nowrap
 
 -- end: ftd.row
 
--- end: ftd.column
+-- ftd.text: $work-section.position
+if: { work-section.position != NULL }
+white-space:nowrap
+role: $inherited.types.fine-print
 
--- ftd.text: $work-section.highlights
-if: { work-section.highlights != NULL }
+-- ftd.text: $work-section.name
+if: { work-section.position != NULL }
+width: fill-container
+role: $inherited.types.heading-tiny
+style: medium
+
+-- end: ftd.column
 
 -- ftd.text: $work-section.summary
 if: { work-section.summary != NULL }
-color: $bright-grey
+role: $inherited.types.copy-small
+width.fixed.percent: 75
 
--- end: ftd.column
+-- end: ftd.row
+
 
 -- end:work-section
-
-
-
-
-
--- component work-hightlights:
-caption title:
-
--- ftd.row:
-color: $inherited.colors.text
-width: fill-container
-spacing.fixed.px: 8
-
--- ftd.row:
-padding-vertical.px: 4
-padding-horizontal.px: 4
-border-radius: 100
-background.solid: $inherited.colors.text
-margin-top.px: 4
-
--- end: ftd.row
-
--- ftd.text: $work-hightlights.title
-role: $inherited.types.copy-small
-
--- end: ftd.row
-
--- end: work-hightlights
 
 
 
@@ -1373,7 +1305,7 @@ border-style: dashed
 border-color: $inherited.colors.border-strong
 margin-bottom.px: 24
 padding-bottom.px: 24
-role: $inherited.types.copy-small
+role: $inherited.types.fine-print
 color: $inherited.colors.text
 
 -- ftd.row:
@@ -1469,102 +1401,35 @@ optional string url:
 optional string role:
 optional string entity:
 optional string type:
+optional ftd.image-src image:
 
 -- ftd.column:
-color: $inherited.colors.text
-width: fill-container
+width.fixed.percent: 45
+width if { ftd.device == "mobile" }: fill-container
 spacing.fixed.px: 12
-border-bottom-width.px: 1
-border-style: dashed
-border-color: $inherited.colors.border-strong
 margin-bottom.px: 24
-padding-bottom.px: 24
+padding-horizontal.px: 12
+padding-vertical.px: 12
+border-radius.px: 4
+role: $inherited.types.fine-print
+color: $inherited.colors.text-strong
+background.solid: $inherited.colors.background.base
+
+-- ftd.image:
+if: { project-section.image != NULL }
+src: $project-section.image
+width: fill-container
+height.fixed.px: 200
+
+-- ftd.text: $project-section.name
+if: { project-section.name != NULL }
+link if {  project-section.url != NULL }: $project-section.url
+width: fill-container
 role: $inherited.types.copy-small
-
--- ftd.row:
-if: { ftd.device != "mobile" }
-width: fill-container
-
--- ftd.text: $project-section.name
-if: { project-section.name != NULL }
-link if {  project-section.url != NULL }: $project-section.url
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $project-section.role
-if: { project-section.role != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.row:
-spacing.fixed.px: 8
-width: fill-container
-
--- ftd.text: $project-section.startDate
-if: { project-section.startDate != NULL }
-
--- ftd.text: ~
-if: { project-section.endDate != NULL }
-
--- ftd.text: $project-section.endDate
-if: { project-section.endDate != NULL }
-
--- end: ftd.row
-
--- end: ftd.row
-
-
--- ftd.column:
-if: { ftd.device == "mobile" }
-width: fill-container
-spacing.fixed.px: 12
-
--- ftd.text: $project-section.name
-if: { project-section.name != NULL }
-link if {  project-section.url != NULL }: $project-section.url
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $project-section.role
-if: { project-section.role != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.row:
-spacing.fixed.px: 8
-width: fill-container
-
--- ftd.text: $project-section.startDate
-if: { project-section.startDate != NULL }
-
--- ftd.text: ~
-if: { project-section.endDate != NULL }
-
--- ftd.text: $project-section.endDate
-if: { project-section.endDate != NULL }
-
--- end: ftd.row
-
--- end: ftd.column
-
--- ftd.text:$project-section.type
-if: {project-section.type != NULL }
-
-
--- ftd.text: $project-section.entity
-if: {project-section.entity != NULL }
-
--- ftd.text: $project-section.keyword
-if: { project-section.keyword != NULL }
-
--- ftd.text: $project-section.highlights
-if: {project-section.highlights != NULL }
 
 -- ftd.text: $project-section.description
 if: {project-section.description != NULL }
 width: fill-container
-color: $bright-grey
-padding-top.px: 4
 
 -- end: ftd.column
 
@@ -1585,29 +1450,44 @@ optional caption network:
 optional string username:
 optional string url:
 
--- ftd.row:
+-- ftd.column:
 width: fill-container
 margin-bottom.px: 16
-spacing: space-between
+color: $inherited.colors.text-strong
 
 -- ftd.row:
-width.fixed.percent: 30
-role: $inherited.types.copy-small
-color: $inherited.colors.text
+
+-- ftd.image:
+src: $assets.files.assets.linkedin.svg
+src if { social-section.network != NULL && social-section.network == "Twitter"}:  $assets.files.assets.twitter.svg
+src if { social-section.network != NULL && social-section.network == "Linked-in"}:  $assets.files.assets.linkedin.svg
+src if { social-section.network != NULL && social-section.network == "Dribble"}:  $assets.files.assets.dribble.svg
+src if { social-section.network != NULL && social-section.network == "Figma"}:  $assets.files.assets.figma.svg
+src if { social-section.network != NULL && social-section.network == "Behance"}:  $assets.files.assets.behance.svg
+src if { social-section.network != NULL && social-section.network == "Github"}:  $assets.files.assets.github.svg
+width.fixed.px: 32
+margin-right.px: 16
+align-self: center
+
+-- ftd.column:
+spacing.fixed.px: 2
 
 -- ftd.text: $social-section.network
 if: { social-section.network != NULL }
-
--- ftd.text: :
-
--- end: ftd.row
+role:  $inherited.types.fine-print
 
 -- ftd.text: $social-section.username
 link if {$social-section.url  != NULL }: $social-section.url
 width.fixed.percent: 60
-color: $bright-grey
+role:  $inherited.types.fine-print
+style: medium
+color: $inherited.colors.text-strong
+
+-- end: ftd.column
 
 -- end: ftd.row
+
+-- end: ftd.column
 
 -- end: social-section
 
@@ -1621,347 +1501,4 @@ color: $bright-grey
 
 
 
-
-
-
-
-
--- component interest-section:
-optional caption name:
-optional string keyword:
-
--- ftd.row:
-width: fill-container
-spacing: space-between
-color: $inherited.colors.text
-role: $inherited.types.copy-small
-margin-bottom.px: 16
-
--- ftd.row:
-width.fixed.percent: 30
-
--- ftd.text: $interest-section.name
-if: { interest-section.name != NULL }
-
---  ftd.text: :
-
--- end: ftd.row
-
---  ftd.text: $interest-section.keyword
-color: $bright-grey
-width.fixed.percent: 60
-
--- end: ftd.row
-
--- end: interest-section
-
-
-
-
-
-
-
-
-
-
--- component achievement-section:
-optional caption title:
-optional string date:
-optional string awarder:
-optional string summary:
-
--- ftd.column:
-width: fill-container
-spacing.fixed.px: 8
-padding-horizontal.px: 24
-role: $inherited.types.copy-small
-
--- ftd.text: $achievement-section.awarder
-if: {achievement-section.awarder != NULL }
-color: $bright-grey
-
--- ftd.row:
-width: fill-container
-padding-horizontal.px: 24
-
--- ftd.text: $achievement-section.position
-if: { achievement-section.position != NULL }
-color: $bright-grey
-width: fill-container
-
---- ftd.text: $achievement-section.title
-if: { achievement-section.title != NULL }
-color: $bright-grey
-width: fill
-margin-top: 12
-
--- ftd.text: $achievement-section.date
-if: { achievement-section.date != NULL }
-width: fill-container
-color: $bright-grey
-
-
--- ftd.text: $achievement-section.summary
-if: { achievement-section.summary != NULL }
-width: fill-container
-color: $bright-grey
-
--- end: ftd.row
-
--- end: ftd.column
-
--- end:  achievement-section
-
-
-
-
-
-
-
-
-
-
-
--- component certificate-section:
-optional caption name:
-optional string date:
-optional string issuer:
-optional string url:
-
--- ftd.column:
-width: fill-container
-spacing.fixed.px: 12
-role: $inherited.types.copy-small
-color: $inherited.colors.text
-margin-bottom.px: 24
-border-bottom-width.px: 1
-border-style: dashed
-border-color: $inherited.colors.border-strong
-padding-bottom.px: 24
-
--- ftd.text: $certificate-section.issuer
-if: { certificate-section.issuer != NULL }
-
--- ftd.row:
-if: { ftd.device !="mobile"}
-width: fill-container
-
--- ftd.text: $certificate-section.name
-if: { certificate-section.name != NULL }
-link if {certificate-section.url != NULL }: $certificate-section.url
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $certificate-section.date
-if: { certificate-section.date != NULL }
-white-space: nowrap
-width: fill-container
-
--- end: ftd.row
-
--- ftd.column:
-if: { ftd.device == "mobile"}
-spacing.fixed.px: 12
-width: fill-container
-
--- ftd.text: $certificate-section.name
-if: { certificate-section.name != NULL }
-link if {certificate-section.url != NULL }: $certificate-section.url
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $certificate-section.date
-if: { certificate-section.date != NULL }
-white-space: nowrap
-width: fill-container
-
--- end: ftd.column
-
--- end: ftd.column
-
--- end: certificate-section
-
-
-
-
-
-
-
-
-
-
--- component volunteer-section:
-optional caption organization:
-optional string position:
-optional string url:
-optional string startDate:
-optional string endDate:
-optional string summary:
-optional string highlights:
-
--- ftd.column:
-width: fill-container
-margin-bottom.px: 24
-border-bottom-width.px: 1
-border-style: dashed
-border-color: $inherited.colors.border-strong
-padding-bottom.px: 24
-role: $inherited.types.copy-small
-color: $inherited.colors.text
-spacing.fixed.px: 12
-
--- ftd.row:
-if: { ftd.device != "mobile" }
-width: fill-container
-
--- ftd.text: $volunteer-section.organization
-if: { volunteer-section.organization != NULL }
-link if { volunteer-section.url != NULL }: $volunteer-section.url
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $volunteer-section.position
-if: { volunteer-section.position != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.row:
-spacing.fixed.px: 8
-width: fill-container
-
--- ftd.text: $volunteer-section.startDate
-if: { volunteer-section.startDate != NULL }
-
--- ftd.text: ~
-if: { volunteer-section.endDate != NULL }
-
--- ftd.text: $volunteer-section.endDate
-if: { volunteer-section.endDate != NULL }
-
--- end: ftd.row
-
--- end: ftd.row
-
--- ftd.column:
-if: { ftd.device == "mobile"}
-width: fill-container
-spacing.fixed.px: 12
-
--- ftd.text: $volunteer-section.organization
-if: { volunteer-section.organization != NULL }
-link if { volunteer-section.url != NULL }: $volunteer-section.url
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $volunteer-section.position
-if: { volunteer-section.position != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.row:
-spacing.fixed.px: 8
-width: fill-container
-
--- ftd.text: $volunteer-section.startDate
-if: { volunteer-section.startDate != NULL }
-
--- ftd.text: ~
-if: { volunteer-section.endDate != NULL }
-
--- ftd.text: $volunteer-section.endDate
-if: { volunteer-section.endDate != NULL }
-
--- end: ftd.row
-
--- end: ftd.column
-
-
--- ftd.text: $volunteer-section.summary
-if:  {volunteer-section.summary != NULL }
-width: fill-container
-color: $bright-grey
-
--- end: ftd.column
-
--- end: volunteer-section
-
-
-
-
-
-
-
-
-
-
--- component acheivement-section:
-optional caption title:
-optional string date:
-optional string awarder:
-optional string summary:
-
--- ftd.column:
-width: fill-container
-spacing.fixed.px: 12
-role: $inherited.types.copy-small
-color: $inherited.colors.text
-margin-bottom.px: 24
-border-bottom-width.px: 1
-border-style: dashed
-border-color: $inherited.colors.border-strong
-padding-bottom.px: 24
-
--- ftd.text: $acheivement-section.awarder
-if: {acheivement-section.awarder != NULL }
-
--- ftd.row:
-if: { ftd.device != "mobile"}
-width: fill-container
-
--- ftd.text: $acheivement-section.title
-if: { acheivement-section.title != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $acheivement-section.date
-if: {acheivement-section.date != NULL }
-white-space: nowrap
-width: fill-container
-
--- end: ftd.row
-
--- ftd.column:
-if: { ftd.device == "mobile"}
-width: fill-container
-spacing.fixed.px: 12
-
--- ftd.text: $acheivement-section.title
-if: { acheivement-section.title != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $acheivement-section.date
-if: {acheivement-section.date != NULL }
-white-space: nowrap
-width: fill-container
-
--- end: ftd.column
-
--- ftd.text: $acheivement-section.summary
-if: { acheivement-section.summary != NULL }
-
--- end: ftd.column
-
--- end: acheivement-section
-
-
-
-
-
-
-
-
--- ftd.color bright-grey:
-light: rgba(230, 225, 222, 1)
-dark: rgba(230, 225, 222, 1)
 
