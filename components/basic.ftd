@@ -1,0 +1,100 @@
+-- import: fastn-community.github.io/code-block as cb
+-- import: fifthtry.github.io/caffeine-resume
+-- import: fifthtry.github.io/resume/sample as s
+
+
+-- site-doc.doc-home: Basic Info
+site-title: Caffeine-resume
+show-tabs: false
+
+-- site-doc.component-doc: `caffeine-resume`
+package-link: fifthtry.github.io/caffeine-resume
+package-name: fifthtry.github.io/caffeine-resume
+info: `-- caffeine-resume` can be used as resume on your fastn web projects.
+
+-- site-doc.header: How to use
+
+-- cb.code: Add `resume` dependency into your FASTN.ftd
+lang: ftd
+
+\-- fastn.dependency: fifthtry.github.io/resume
+\-- fastn.dependency: fifthtry.github.io/caffeine-resume
+
+-- cb.code: Import `resume` into your `.ftd` file
+lang: ftd
+
+\-- import: fifthtry.github.io/caffeine-resume
+\-- import: fifthtry.github.io/resume as cv
+
+-- cb.code: Write below code to your `.ftd` file
+lang: ftd
+
+\-- cv.resume john-doe:
+
+-- site-doc.header: Resume Basic Info:
+
+-- cb.code: Modify below basic info with your info:
+lang: ftd
+
+\-- john-doe.basic: John Doe
+label: Web Developer
+email: john@gmail.com
+phone: (912) 555-4321
+url: https://johndoe.com
+maritalStatus: Single
+dateOfBirth: 03rd Jan 1986
+summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+image: $assets.files.profile-picture.jpg
+
+-- site-doc.header: Properties:
+
+Below are details of all properties of this component.
+
+-- site-doc.component-property: `title`
+type: caption (`required`)
+
+It's used to show `title` for the basic info sections.
+
+-- site-doc.component-property: `label`
+type: string (`required`)
+
+It's used to show `label` for the basic info.
+
+-- site-doc.component-property: `email`
+type: string (`required`)
+
+It's used to show `email` for the basic info sections.
+
+-- site-doc.component-property: `phone`
+type: string (`required`)
+
+It's used to show `phone` for the basic info sections.
+
+-- site-doc.component-property: `url`
+type: link (`required`)
+
+It's used to show `url` for the basic info sections.
+
+-- site-doc.component-property: `maritalStatus`
+type: string (`required`)
+
+It's used to show `maritalStatus` for the basic info sections.
+
+-- site-doc.component-property: `dateOfBirth`
+type: string (`required`)
+
+It's used to show `dateOfBirth` for the basic info sections.
+
+-- site-doc.component-property: `summary`
+type: string (`required`)
+
+It's used to show `summary` for the basic info sections.
+
+-- site-doc.component-property: `image`
+type: ftd.image-src (`required`)
+
+It's used to show `image` for the basic info sections.
+
+-- end: site-doc.component-doc
+
+-- end: site-doc.doc-home

@@ -1,0 +1,76 @@
+-- import: fastn-community.github.io/code-block as cb
+-- import: fifthtry.github.io/caffeine-resume
+-- import: fifthtry.github.io/resume/sample as s
+
+
+-- site-doc.doc-home: Location Info
+site-title: Caffeine-resume
+show-tabs: false
+
+-- site-doc.component-doc: `caffeine-resume`
+package-link: fifthtry.github.io/caffeine-resume
+package-name: fifthtry.github.io/caffeine-resume
+info: `-- caffeine-resume` can be used as resume on your fastn web projects.
+
+-- site-doc.header: How to use
+
+-- cb.code: Add `resume` dependency into your FASTN.ftd
+lang: ftd
+
+\-- fastn.dependency: fifthtry.github.io/resume
+\-- fastn.dependency: fifthtry.github.io/caffeine-resume
+
+-- cb.code: Import `resume` into your `.ftd` file
+lang: ftd
+
+\-- import: fifthtry.github.io/caffeine-resume
+\-- import: fifthtry.github.io/resume as cv
+
+-- cb.code: Write below code to your `.ftd` file
+lang: ftd
+
+\-- cv.resume john-doe:
+
+-- site-doc.header: Resume Location Info:
+
+-- cb.code: Modify below basic info with your info:
+lang: ftd
+
+\-- john-doe.location: 2712 Broadway 
+postalCode: CA 94115
+city: Francisco
+countryCode: US
+region: California
+
+-- site-doc.header: Properties:
+
+Below are details of all properties of this component.
+
+-- site-doc.component-property: `title`
+type: caption (`required`)
+
+It's used to show `title` for the location sections.
+
+-- site-doc.component-property: `postalCode`
+type: string (`required`)
+
+It's used to show `postalCode` for the location.
+
+-- site-doc.component-property: `city`
+type: string (`required`)
+
+It's used to show `city` for the location.
+
+-- site-doc.component-property: `countryCode`
+type: string (`required`)
+
+It's used to show `countryCode` for the location.
+
+-- site-doc.component-property: `region`
+type: string (`required`)
+
+It's used to show `region` for the location.
+
+-- end: site-doc.component-doc
+
+-- end: site-doc.doc-home

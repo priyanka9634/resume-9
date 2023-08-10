@@ -1,0 +1,14 @@
+-- import: fifthtry.github.io/caffeine-resume as caffeine
+-- import: fifthtry.github.io/resume/sample as s
+
+
+
+
+
+
+
+
+
+
+-- caffeine.full-page:
+resume: $s.john-doe
