@@ -1,7 +1,7 @@
 
 -- import: fifthtry.github.io/resume/sample as s
 -- import: fifthtry.github.io/resume as res
--- import: fifthtry.github.io/caffeine-resume/assets
+-- import: priyanka9634.github.io/resume-9/assets
 
 
 
@@ -132,11 +132,6 @@ candidate-email-address: $about-section-desktop.resume.basic.email
 candidate-phone: $about-section-desktop.resume.basic.phone
 candidate-address-city: $about-section-desktop.resume.location.city
 candidate-address: $about-section-desktop.resume.location.address
-candidate-address-postalCode: $about-section-desktop.resume.location.postalCode
-candidate-address-region: $about-section-desktop.resume.location.region
-candidate-address-countryCode: $about-section-desktop.resume.location.countryCode
-maritalStatus: $about-section-desktop.resume.basic.maritalStatus
-dateOfBirth: $about-section-desktop.resume.basic.dateOfBirth
 website: $about-section-desktop.resume.basic.url 
 
 -- end: ftd.column
@@ -191,12 +186,10 @@ border-color: $inherited.colors.background.base
 -- work-section:
 name: $obj.name
 position: $obj.position
-location: $obj.location
 url: $obj.url
 startDate: $obj.startDate
 endDate: $obj.endDate
 summary: $obj.summary
-highlights: $obj.highlights
 $loop$: $about-section-desktop.resume.work as $obj
 
 -- end: ftd.column
@@ -222,11 +215,6 @@ url: $obj.url
 description: $obj.description
 startDate: $obj.startDate
 endDate: $obj.endDate
-highlights: $obj.highlights
-role: $obj.role
-keyword: $obj.keyword
-entity: $obj.entity
-type: $obj.type
 image: $obj.image
 $loop$: $about-section-desktop.resume.project as $obj
 
@@ -248,12 +236,9 @@ border-color: $inherited.colors.background.base
 -- education-section:
 institution: $obj.institution
 url: $obj.url
-courses: $obj.courses
-area: $obj.area
 studyType: $obj.studyType
 startDate: $obj.startDate
 endDate: $obj.endDate
-score: $obj.score
 $loop$: $about-section-desktop.resume.education as $obj
 
 -- end: ftd.column
@@ -356,11 +341,7 @@ candidate-email-address: $about-section-mobile.resume.basic.email
 candidate-phone: $about-section-mobile.resume.basic.phone
 candidate-address-city: $about-section-mobile.resume.location.city
 candidate-address: $about-section-mobile.resume.location.address
-candidate-address-postalCode: $about-section-mobile.resume.location.postalCode
-candidate-address-region: $about-section-mobile.resume.location.region
-candidate-address-countryCode: $about-section-mobile.resume.location.countryCode
-maritalStatus: $about-section-mobile.resume.basic.maritalStatus
-dateOfBirth: $about-section-mobile.resume.basic.dateOfBirth
+website: $about-section-mobile.resume.basic.url 
 
 -- end: ftd.column
 
@@ -412,12 +393,10 @@ padding-horizontal.px: 24
 -- work-section:
 name: $obj.name
 position: $obj.position
-location: $obj.location
 url: $obj.url
 startDate: $obj.startDate
 endDate: $obj.endDate
 summary: $obj.summary
-highlights: $obj.highlights
 $loop$: $about-section-mobile.resume.work as $obj
 
 -- end: ftd.column
@@ -435,11 +414,6 @@ url: $obj.url
 description: $obj.description
 startDate: $obj.startDate
 endDate: $obj.endDate
-highlights: $obj.highlights
-role: $obj.role
-keyword: $obj.keyword
-entity: $obj.entity
-type: $obj.type
 image: $obj.image
 $loop$: $about-section-mobile.resume.project as $obj
 
@@ -456,12 +430,9 @@ padding-horizontal.px: 24
 -- education-section:
 institution: $obj.institution
 url: $obj.url
-courses: $obj.courses
-area: $obj.area
 studyType: $obj.studyType
 startDate: $obj.startDate
 endDate: $obj.endDate
-score: $obj.score
 $loop$: $about-section-mobile.resume.education as $obj
 
 -- end: ftd.column
@@ -566,7 +537,6 @@ width: fill-container
 height: fill-container
 border-color: $inherited.colors.custom.three
 border-width.px: 10
-border-radius.percent: 100
 
 -- ftd.text:
 if: { profile-card-desktop.summary != NULL }
@@ -1143,12 +1113,9 @@ text-align: center
 -- component education-section:
 optional caption institution:
 optional string url:
-optional string area:
 optional string studyType:
 optional string startDate:
 optional string endDate:
-optional string score:
-optional string courses:
 
 -- ftd.column:
 width: fill-container
@@ -1212,8 +1179,6 @@ optional string url:
 optional string startDate:
 optional string endDate:
 optional string summary:
-optional string location:
-optional string highlights:
 
 -- ftd.row:
 width: fill-container
@@ -1226,6 +1191,7 @@ width.fixed.px: 5
 height.fixed.px: 5
 background.solid: $inherited.colors.text-strong
 margin-right.px: 24
+margin-right.px if { ftd.device == "mobile"}: 6
 border-radius.px: 100
 margin-top.px: 12
 
@@ -1233,10 +1199,13 @@ margin-top.px: 12
 
 -- ftd.column:
 width.fixed.percent: 20
+width.fixed.percent if { ftd.device == "mobile"}: 50
 spacing.fixed.px: 8
 margin-right.px: 48
+margin-right.px if { ftd.device == "mobile"}: 12
 
 -- ftd.row:
+if: { ftd.device != "mobile"}
 padding-top.px: 2
 width: fill-container
 color: $inherited.colors.text
@@ -1257,9 +1226,35 @@ white-space: nowrap
 
 -- end: ftd.row
 
+-- ftd.row:
+if: { ftd.device == "mobile"}
+padding-top.px: 2
+width: fill-container
+color: $inherited.colors.text
+role: $inherited.types.fine-print
+
+-- ftd.text: $work-section.startDate
+if: { work-section.startDate != NULL }
+white-space: nowrap
+
+-- ftd.text: \~
+if: { work-section.endDate != NULL }
+padding-horizontal.px: 4
+white-space: nowrap
+
+-- ftd.text: $work-section.endDate
+if: { work-section.endDate != NULL }
+white-space: nowrap
+
+-- end: ftd.row
+
 -- ftd.text: $work-section.position
-if: { work-section.position != NULL }
+if: { work-section.position != NULL && ftd.device != "mobile"}
 white-space:nowrap
+role: $inherited.types.fine-print
+
+-- ftd.text: $work-section.position
+if: { work-section.position != NULL && ftd.device == "mobile" }
 role: $inherited.types.fine-print
 
 -- ftd.text: $work-section.name
@@ -1271,9 +1266,15 @@ style: medium
 -- end: ftd.column
 
 -- ftd.text: $work-section.summary
-if: { work-section.summary != NULL }
+if: { work-section.summary != NULL && ftd.device != "mobile" }
 role: $inherited.types.copy-small
-width.fixed.percent: 75
+width.fixed.percent: 80
+
+-- ftd.text: $work-section.summary
+if: { work-section.summary != NULL && ftd.device == "mobile" }
+role: $inherited.types.fine-print
+width.fixed.percent: 50
+
 
 -- end: ftd.row
 
@@ -1289,99 +1290,6 @@ width.fixed.percent: 75
 
 
 
--- component refrences-section:
-optional caption name:
-optional string phone:
-optional string email:
-optional string position:
-optional string company:
-optional string reference:
-
--- ftd.column:
-width: fill-container
-spacing.fixed.px: 12
-border-bottom-width.px: 1
-border-style: dashed
-border-color: $inherited.colors.border-strong
-margin-bottom.px: 24
-padding-bottom.px: 24
-role: $inherited.types.fine-print
-color: $inherited.colors.text
-
--- ftd.row:
-if: { ftd.device != "mobile"}
-width: fill-container
-
--- ftd.text: $refrences-section.name
-if: { refrences-section.name != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $refrences-section.position
-if: {refrences-section.position != NULL }
-width: fill-container
-
--- ftd.text: $refrences-section.company
-if: { refrences-section.company != NULL }
-margin-left.px: 12
-width: fill-container
-
--- end: ftd.row
-
--- ftd.column:
-if: { ftd.device == "mobile"}
-spacing.fixed.px: 12
-
--- ftd.text: $refrences-section.name
-if: { refrences-section.name != NULL }
-color: $bright-grey
-width: fill-container
-
--- ftd.text: $refrences-section.position
-if: {refrences-section.position != NULL }
-width: fill-container
-
--- ftd.text: $refrences-section.company
-if: { refrences-section.company != NULL }
-width: fill-container
-
--- end: ftd.column
-
-
--- ftd.row:
-if: { refrences-section.email != NULL }
-
--- ftd.text: Email:
-color: $inherited.colors.text
-
--- ftd.text: $refrences-section.email
-if: { refrences-section.email != NULL }
-margin-left.px: 8
-
--- end: ftd.row
-
--- ftd.row:
-if: { refrences-section.phone != NULL }
-
--- ftd.text: Phone:
-color: $inherited.colors.text
-
--- ftd.text: $refrences-section.phone
-if: { refrences-section.phone != NULL }
-margin-left.px: 8
-
--- end: ftd.row
-
--- ftd.text:
-if: { refrences-section.reference != NULL }
-text: $refrences-section.reference
-
--- end: ftd.column
-
--- end: refrences-section
-
-
-
 
 
 
@@ -1393,14 +1301,9 @@ text: $refrences-section.reference
 -- component project-section:
 optional caption name:
 optional string description:
-optional string highlights:
-optional string keyword:
 optional string startDate:
 optional string endDate:
 optional string url:
-optional string role:
-optional string entity:
-optional string type:
 optional ftd.image-src image:
 
 -- ftd.column:

@@ -1,12 +1,12 @@
 -- import: fastn
 
--- fastn.package: fifthtry.github.io/caffeine-resume
-download-base-url: https://raw.githubusercontent.com/fifthtry/caffeine-resume/main
+-- fastn.package: priyanka9634.github.io/resume-9
+download-base-url: https://raw.githubusercontent.com/fifthtry/resume-9/main
 
 -- fastn.dependency: fastn-community.github.io/doc-site as ds
+-- fastn.dependency: fifthtry.github.io/resume
 -- fastn.dependency: fastn-community.github.io/site-doc
 -- fastn.dependency: fastn-community.github.io/code-block
--- fastn.dependency: fifthtry.github.io/resume
 
 -- fastn.auto-import: ds
 -- fastn.auto-import: fastn
@@ -20,15 +20,13 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/caffeine-resume/ma
 # Home: /index.html
 
 # Docs: components/
-- Awards: components/awards
 - Basic: components/basic
-- Certificate: components/certificate
 - Education: components/education
-- Interest: components/interest
 - Language: components/language
 - Location: components/location
 - Profile: components/profile
-- Reference: components/reference
 - Skills: components/skills
-- Volunteer: components/volunteer
 - Work: components/work
+- Project: components/project
+
+

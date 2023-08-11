@@ -1,16 +1,16 @@
 -- import: fastn-community.github.io/code-block as cb
--- import: fifthtry.github.io/caffeine-resume
+-- import: priyanka9634.github.io/resume-9
 -- import: fifthtry.github.io/resume/sample as s
 
 
 -- site-doc.doc-home: Work Info
-site-title: Caffeine-resume
+site-title: resume-9
 show-tabs: false
 
--- site-doc.component-doc: `caffeine-resume`
-package-link: fifthtry.github.io/caffeine-resume
-package-name: fifthtry.github.io/caffeine-resume
-info: `-- caffeine-resume` can be used as resume on your fastn web projects.
+-- site-doc.component-doc: `resume-9`
+package-link: priyanka9634.github.io/resume-9
+package-name: priyanka9634.github.io/resume-9
+info: `-- resume-9` can be used as resume on your fastn web projects.
 
 -- site-doc.header: How to use
 
@@ -18,12 +18,12 @@ info: `-- caffeine-resume` can be used as resume on your fastn web projects.
 lang: ftd
 
 \-- fastn.dependency: fifthtry.github.io/resume
-\-- fastn.dependency: fifthtry.github.io/caffeine-resume
+\-- fastn.dependency: priyanka9634.github.io/resume-9
 
 -- cb.code: Import `resume` into your `.ftd` file
 lang: ftd
 
-\-- import: fifthtry.github.io/caffeine-resume
+\-- import: priyanka9634.github.io/resume-9
 \-- import: fifthtry.github.io/resume as cv
 
 -- cb.code: Write below code to your `.ftd` file
@@ -41,7 +41,6 @@ position: Senior Javascript Developer
 url: /
 startDate: May, 2020
 endDate: Present
-location: Bangalore
 summary: Tokenized is a Bitcoin wallet for issuing, managing and trading digital tokens. I built out the front end which was packaged as an electron app. It was a difficult frontend to build because we stored the user keys locally and used them to sign transactions and contracts.
 highlights: Awarded as Employee of the Year - 2013, and won a holiday trip to London, UK.
 
@@ -50,7 +49,6 @@ position: Developer
 url: /
 startDate: Jan, 2016
 endDate: Jan, 2018
-location: Melbourne
 summary: Built a very large and complex React / Redux application. It works on all platforms and has IOS/Android builds due to it being a PWA. (wrapped it in React Native though only implementing a WebView)
 highlights: Worked with Postgres, Redis and Dynamodb for storage. Hosted on a mixture of Heroku Apps and EC2 servers. Hybrid app supported on all platforms
 
@@ -59,7 +57,6 @@ position: Co-Founder
 url: /
 startDate: Jan, 2014
 endDate: Jan, 2016
-location: Melbourne
 summary: Following Google’s CDN for jQuery, we decided to start a CDN for the less popular Javascript frameworks. The CDN is community moderated and open source on GitHub. We secured a partnership with Cloudflare who now supports the infrastructure.
 highlights: Larger market share than Yahoo, Microsoft and Google javascript content distribution networks. We serve hundreds of billions request a month 
 
@@ -68,44 +65,36 @@ highlights: Larger market share than Yahoo, Microsoft and Google javascript cont
 Below are details of all properties of this component.
 
 -- site-doc.component-property: `title`
-type: caption (`required`)
+type: caption (`optional`)
 
 It's used to show `title` for the work sections.
 
 -- site-doc.component-property: `position`
-type: string (`required`)
+type: string (`optional`)
 
 It's used to show `position` for the work.
 
 -- site-doc.component-property: `url`
-type: link (`required`)
+type: link (`optional`)
 
 It's used to show `url` for the work.
 
 -- site-doc.component-property: `startDate`
-type: string (`required`)
+type: string (`optional`)
 
 It's used to show `startDate` for the work.
 
 -- site-doc.component-property: `endDate`
-type: string (`required`)
+type: string (`optional`)
 
 It's used to show `endDate` for the work.
-
--- site-doc.component-property: `location`
-type: string (`required`)
 
 It's used to show `location` for the work.
 
 -- site-doc.component-property: `summary`
-type: string (`required`)
-
-It's used to show `summary` for the work.
-
--- site-doc.component-property: `highlights`
 type: string (`optional`)
 
-It's used to show `highlights` for the work.
+It's used to show `summary` for the work.
 
 -- end: site-doc.component-doc
 
