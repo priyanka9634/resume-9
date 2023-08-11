@@ -1,16 +1,16 @@
 -- import: fastn-community.github.io/code-block as cb
--- import: fifthtry.github.io/caffeine-resume
+-- import: priyanka9634.github.io/resume-9
 -- import: fifthtry.github.io/resume/sample as s
 
 
 -- site-doc.doc-home: Basic Info
-site-title: Caffeine-resume
+site-title: resume-9
 show-tabs: false
 
--- site-doc.component-doc: `caffeine-resume`
-package-link: fifthtry.github.io/caffeine-resume
-package-name: fifthtry.github.io/caffeine-resume
-info: `-- caffeine-resume` can be used as resume on your fastn web projects.
+-- site-doc.component-doc: `resume-9`
+package-link: priyanka9634.github.io/resume-9
+package-name: priyanka9634.github.io/resume-9
+info: `-- resume-9` can be used as resume on your fastn web projects.
 
 -- site-doc.header: How to use
 
@@ -18,12 +18,12 @@ info: `-- caffeine-resume` can be used as resume on your fastn web projects.
 lang: ftd
 
 \-- fastn.dependency: fifthtry.github.io/resume
-\-- fastn.dependency: fifthtry.github.io/caffeine-resume
+\-- fastn.dependency: priyanka9634.github.io/resume-9
 
 -- cb.code: Import `resume` into your `.ftd` file
 lang: ftd
 
-\-- import: fifthtry.github.io/caffeine-resume
+\-- import: priyanka9634.github.io/resume-9
 \-- import: fifthtry.github.io/resume as cv
 
 -- cb.code: Write below code to your `.ftd` file
@@ -51,47 +51,37 @@ image: $assets.files.profile-picture.jpg
 Below are details of all properties of this component.
 
 -- site-doc.component-property: `title`
-type: caption (`required`)
+type: caption (`optional`)
 
 It's used to show `title` for the basic info sections.
 
 -- site-doc.component-property: `label`
-type: string (`required`)
+type: string (`optional`)
 
 It's used to show `label` for the basic info.
 
 -- site-doc.component-property: `email`
-type: string (`required`)
+type: string (`optional`)
 
 It's used to show `email` for the basic info sections.
 
 -- site-doc.component-property: `phone`
-type: string (`required`)
+type: string (`optional`)
 
 It's used to show `phone` for the basic info sections.
 
 -- site-doc.component-property: `url`
-type: link (`required`)
+type: link (`optional`)
 
 It's used to show `url` for the basic info sections.
 
--- site-doc.component-property: `maritalStatus`
-type: string (`required`)
-
-It's used to show `maritalStatus` for the basic info sections.
-
--- site-doc.component-property: `dateOfBirth`
-type: string (`required`)
-
-It's used to show `dateOfBirth` for the basic info sections.
-
 -- site-doc.component-property: `summary`
-type: string (`required`)
+type: string (`optional`)
 
 It's used to show `summary` for the basic info sections.
 
 -- site-doc.component-property: `image`
-type: ftd.image-src (`required`)
+type: ftd.image-src (`optional`)
 
 It's used to show `image` for the basic info sections.
 

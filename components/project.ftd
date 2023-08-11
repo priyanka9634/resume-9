@@ -1,0 +1,94 @@
+-- import: fastn-community.github.io/code-block as cb
+-- import: priyanka9634.github.io/resume-9
+-- import: fifthtry.github.io/resume/sample as s
+
+
+-- site-doc.doc-home: Project Info
+site-title: resume-9
+show-tabs: false
+
+-- site-doc.component-doc: `resume-9`
+package-link: priyanka9634.github.io/resume-9
+package-name: priyanka9634.github.io/resume-9
+info: `-- resume-9` can be used as resume on your fastn web projects.
+
+-- site-doc.header: How to use
+
+-- cb.code: Add `resume` dependency into your FASTN.ftd
+lang: ftd
+
+\-- fastn.dependency: fifthtry.github.io/resume
+\-- fastn.dependency: fifthtry.github.io/resume-9
+
+-- cb.code: Import `resume` into your `.ftd` file
+lang: ftd
+
+\-- import: fifthtry.github.io/resume-9
+\-- import: fifthtry.github.io/resume as cv
+
+-- cb.code: Write below code to your `.ftd` file
+lang: ftd
+
+\-- cv.resume john-doe:
+
+-- site-doc.header: Resume Project Info:
+
+-- cb.code: Modify below project details info with your info:
+lang: ftd
+
+\-- john-doe.project: Deno.com
+description: John is a runtime for JavaScript and TypeScript that is based on the V8 JavaScript engine and the Rust programming language. It was created by John Doe, original creator of Node.js, and is focused on productivity. It was announced by Doe in 2018 during his talk "10 Things I Regret About Node.js".
+highlights: Vitae tempus quam pellentesque, Scelerisque felis imperdiet, Dui accumsan sit amet nulla
+keyword: Node JS, JavaScript, TypeScript, Rust
+startDate: May 2018
+endDate: Present
+url: /
+role: Creator
+entity: Deno
+type: Mobile Application
+image: $assets.files.image.svg
+
+\-- john-doe.project: Node.org
+description: Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that executes JavaScript code outside a web browser.
+startDate: Aug 2011
+endDate: May 2018
+url: /
+image: $assets.files.image.svg
+
+-- site-doc.header: Properties:
+
+Below are details of all properties of this component.
+
+-- site-doc.component-property: `title`
+type: caption (`optional`)
+
+It's used to show `title` for the project sections.
+
+-- site-doc.component-property: `description`
+type: string (`optional`)
+
+It's used to show `description` for the project.
+
+-- site-doc.component-property: `url`
+type: link (`optional`)
+
+It's used to show `url` for the project.
+
+-- site-doc.component-property: `startDate`
+type: string (`optional`)
+
+It's used to show `startDate` for the project.
+
+-- site-doc.component-property: `endDate`
+tyoptionalpe: string (`optional`)
+
+It's used to show `endDate` for the project.
+
+-- site-doc.component-property: `image`
+type: ftd.image-src (`optional`)
+
+It's used to show `image` for the project.
+
+-- end: site-doc.component-doc
+
+-- end: site-doc.doc-home
